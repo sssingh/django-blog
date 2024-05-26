@@ -136,8 +136,8 @@ STORAGES = {  # deploy change
 }
 
 # ALLOWED_HOSTS = ["sunxis-blog.fly.dev", "localhost", "127.0.0.1"]  # deploy change
-ALLOWED_HOSTS = ["*"]  # deploy change
-CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev"]  # deploy change
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split()  # deploy change
+CSRF_TRUSTED_ORIGINS = [os.environ.get("CSRF_TRUSTED_ORIGINS")]  # deploy change
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
