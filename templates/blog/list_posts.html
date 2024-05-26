@@ -1,0 +1,52 @@
+{% load static %}
+
+{% block content %}
+<!-- same template can be used by home page and the browse page
+ if called from home-page it'll display limited number of posts
+ -->
+<section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-2">
+    {% for post in post_list %}
+    <!-- main content card-->
+    <div class="p-4 rounded-lg shadow-md bg-white mx-2 my-4">
+        <!-- title -->
+        <a class="hover:underline underline-offset-4" href="{% url 'detail-post' post.id %}">
+            <div class="font-lobster text-2xl text-gray-800">
+                {{post.title}}
+            </div>
+        </a>
+        <!-- image credit -->
+        <div class="flex items-left gap-2 mt-2">
+            <h3 class="text-[10px] text-gray-400">Image Credit: </h3>
+            <p class="text-[10px] text-gray-400">{{post.image_credit}}</p>
+        </div>
+        <!-- feature image -->
+        <a class="" href="{% url 'detail-post' post.id %}">
+            <img class="rounded-t-lg hover:scale-105 duration-300 object-fill" src="{% static 'images/'%}{{post.image}}"
+                alt="">
+        </a>
+        <!-- date and author details -->
+        <div class="flex justify-left gap-3 items-center text-xs text-gray-400 mt-2 mb-2">
+            <!-- date -->
+            <p>{{post.created}}</p>
+            <!-- blog author details-->
+
+            <a href="#">
+                <div class="flex items-center justify-between gap-1 group">
+                    <img class="h-6 w-6 group-hover:scale-105" src="https://img.icons8.com/small/16/happy.png"
+                        alt="happy" />
+                    <p class="group-hover:underline">{{post.author}}</p>
+                </div>
+            </a>
+
+        </div>
+        <!-- blog title and text-snippet-->
+        <div>
+            <!-- text -->
+            <div class="font-popins text-md text-gray-700">
+                {{post.body|slice:":100"}} ...
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock content %}

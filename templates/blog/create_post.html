@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="max-w-2xl mx-auto my-10">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mx-4 p-2 shadow-md">
+            <h1 class="text-center text-white text-2xl text-semibold font-lobster bg-gray-600">New Blog Post</h1>
+            <p class="text-sm mt-4 text-gray-600">{{form.title.label}}</p>
+            <p>{% render_field form.title class="border-gray-300 rounded-lg w-full text-gray-700" %}</p>
+            <p class="text-sm mt-2 text-gray-600">{{form.image_credit.label}}</p>
+            {% render_field form.image_credit class="border-gray-300 rounded-lg w-full text-gray-700" %}
+            <p class="text-sm mt-2 text-gray-600">{{form.author.label}}</p>
+            {% render_field form.author class="border-gray-300 rounded-lg w-full text-gray-700" %}
+            <p class="text-sm mt-2 text-gray-600">{{form.body.label}}</p>
+            {% render_field form.body class="border-gray-300 rounded-lg w-full text-gray-700" %}
+        </div>
+        <input type="submit" value="Save Post" class="mt-4 px-4 py-1 bg-sky-500 text-white rounded mx-4">
+    </form>
+</div>
+
+{% endblock content %}

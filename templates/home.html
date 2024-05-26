@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'hero.html' %}
+<!-- render the list of post but only include few latest posts -->
+{% include 'blog/list_posts.html' with post_list=latest_posts %}
+{% endblock content %}

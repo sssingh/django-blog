@@ -1,0 +1,48 @@
+<header class="flex items-center justify-between bg-gray-800 h-auto py-6 px-8 sticky">
+    <!-- logo container-->
+    <div class="flex flex-row items-center ">
+        <!-- logo image -->
+        <img class="h-8 -mt-2" src="https://img.icons8.com/small/64/ffffff/fire-heart.png" alt="fire heart">
+        <!-- text -->
+        <span class="text-white text-2xl font-shrikhand ml-1">FireHeart</span>
+    </div>
+    <!-- menu container  -->
+    <div class="mt-4 md:mt-0">
+        <!-- menu -->
+        <ul class="flex flex-col md:flex-row items-center gap-4 text-white text-sm font-oswald">
+            <!-- home menu -->
+            <li class="hover:underline hover:underline-offset-4 hover:scale-105"><a href="{% url 'home' %}">Home</a>
+            </li>
+            <!-- Show Browse Blog, Create Blog and Logout only if user is logged in -->
+            {% if user.is_authenticated %}
+            <!-- browse-blog menu -->
+            <li class="hover:underline hover:underline-offset-4 hover:scale-105"><a href="{% url 'list-posts' %}">Browse
+                    Blog</a>
+            </li>
+            <!-- create-blog menu -->
+            <li class="hover:underline hover:underline-offset-4 hover:scale-105"><a
+                    href="{% url 'create-post' %}">Create Blog</a>
+            </li>
+            <!-- If user is logged in then show logout option -->
+
+            <!-- Logout menu : need to wrap this in form so that we can send POST request-->
+            <li>
+                <form action="{% url 'logout' %}" method="POST">
+                    {% csrf_token %}
+                    <button class="hover:underline hover:underline-offset-4 hover:scale-105" type="Submit">Logout
+                    </button>
+                </form>
+            </li>
+            {% endif %}
+            <!-- If user is NOT logged in then show login and signup options -->
+            {% if not user.is_authenticated %}
+            <!-- Login menu -->
+            <li class="hover:underline hover:underline-offset-4 hover:scale-105"><a href="{% url 'login' %}">Login</a>
+            </li>
+            <!-- Signup menu -->
+            <li class="hover:underline hover:underline-offset-4 hover:scale-105"><a href="{% url 'signup' %}">Signup</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</header>

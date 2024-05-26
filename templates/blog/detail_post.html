@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="max-w-2xl mx-auto mt-10 px-4">
+
+    <h2 class="text-4xl font-lobster mb-2">{{post.title}}</h2>
+    <div class="flex items-center justify-between">
+        <div>
+            <p class="text-md text-gray-600">By: {{ post.author }}</p>
+            <p class="text-xs text-gray-600">Created: {{ post.created }}</p>
+            <p class="text-xs text-gray-600 mb-2">Image credit: {{ post.image_credit }}</p>
+        </div>
+        <div>
+            <button
+                class="px-3 py-1 text-white text-sm bg-green-600 font-oswald rounded-lg hover:bg-green-700 hover:scale-105"><a
+                    href="{% url 'edit-post' post.id%}">Edit
+                    Post</a></button>
+            <button
+                class="px-3 py-1 text-white text-sm bg-red-600 font-oswald rounded-lg hover:bg-red-700 hover:scale-105"><a
+                    href="{% url 'delete-post' post.id%}">Delete
+                    Post</a></button>
+        </div>
+    </div>
+    <img src="{% static 'images/' %}{{ post.image }}" alt="">
+    <p class="text-lg text-gray-800 font-popins my-4">{{post.body}}</p>
+</div>
+{% endblock content %}

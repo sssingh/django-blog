@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="max-w-2xl mx-auto mt-10 ">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mx-4 p-4 bg-white shadow-md">
+            <h1 class="text-center text-white text-2xl text-semibold font-lobster bg-gray-600 mb-4">Please Signup</h1>
+            <p class="text-sm mt-4 text-gray-600">{{form.username.label}}</p>
+            <p>{% render_field form.username class="border-gray-300 rounded-lg w-full text-gray-700" %}</p>
+            <p class="text-sm mt-4 text-gray-600">{{form.password1.label}}</p>
+            <p>{% render_field form.password1 class="border-gray-300 rounded-lg w-full text-gray-700" %}</p>
+            <p class="text-sm mt-4 text-gray-600">{{form.password2.label}}</p>
+            <p>{% render_field form.password2 class="border-gray-300 rounded-lg w-full text-gray-700" %}</p>
+
+            <!-- show errors -->
+            <div class="text-xs mt-4 errorlist">
+                {% for f in form %}
+                {{f.errors}}
+                {% endfor %}
+            </div>
+
+            <button type="submit" class="w-full mt-8 px-4 py-1 text-white bg-sky-500 rounded">Signup</button>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock%}

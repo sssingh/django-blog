@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="max-w-2xl mx-auto my-10">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mx-4 p-2 shadow-md bg-red-300">
+            <h1 class="text-center text-white text-2xl text-semibold font-lobster bg-gray-600 mb-4">Delete Blog Post
+            </h1>
+            <p>Are you sure you want to delete post <i>'{{post.title}}?'</i></p>
+            <input
+                class="px-4 py-1 text-white bg-red-600 rounded-lg font-oswald mt-8 mb-4 cursor-pointer hover:scale-105 hover:bg-red-700"
+                type="submit" value="Yes, Delete Post"></input>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
