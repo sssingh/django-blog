@@ -23,7 +23,7 @@ DEBUG = os.environ.get("DEBUG", False)  # change
 # Application definition
 
 INSTALLED_APPS = [
-    "clearcache",  # change
+    # "clearcache",  # change
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     "widget_tweaks",  # change
     "blog",  # change
     "accounts",  # change
-    "django_browser_reload",  # change
+    # "django_browser_reload",  # change
 ]
 
 MIDDLEWARE = [
@@ -46,7 +46,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django_browser_reload.middleware.BrowserReloadMiddleware",  # change
+    # "django_browser_reload.middleware.BrowserReloadMiddleware",  # change
 ]
 
 ROOT_URLCONF = "django_project.urls"

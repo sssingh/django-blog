@@ -2,9 +2,9 @@ asgiref==3.8.1
 dj-database-url==2.1.0
 dj-email-url==1.0.6
 Django==5.0.6
-django-browser-reload==1.12.1
+#django-browser-reload==1.12.1
 django-cache-url==3.4.5
-django-clearcache==1.2.1
+#django-clearcache==1.2.1
 django-widget-tweaks==1.5.0
 gunicorn==22.0.0
 marshmallow==3.21.2
